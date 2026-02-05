@@ -13,28 +13,7 @@
     <meta name="theme-color" content="#0a0e12">
     <link rel="icon" type="image/png" href="https://i.ibb.co/tpfBQmNt/Favicon-copia.png">
     
-    <link rel="manifest" href="data:application/manifest+json, {
-        'name': 'Dclan Athletes',
-        'short_name': 'Dclan',
-        'description': 'App de entrenamiento para The Garage Box',
-        'start_url': 'index.html',
-        'display': 'standalone',
-        'background_color': '#0a0e12',
-        'theme_color': '#00d4ff',
-        'icons': [
-            {
-                'src': 'https://i.ibb.co/tpfBQmNt/Favicon-copia.png',
-                'sizes': '192x192',
-                'type': 'image/png',
-                'purpose': 'any maskable'
-            },
-            {
-                'src': 'https://i.ibb.co/tpfBQmNt/Favicon-copia.png',
-                'sizes': '512x512',
-                'type': 'image/png'
-            }
-        ]
-    }">
+    <link rel="manifest" href='data:application/manifest+json,{"name":"Dclan Athletes","short_name":"Dclan","start_url":".","display":"standalone","background_color":"#0a0e12","theme_color":"#00d4ff","icons":[{"src":"https://i.ibb.co/tpfBQmNt/Favicon-copia.png","sizes":"192x192","type":"image/png"}]}'>
 
     <style>
         body, html { 
@@ -51,13 +30,14 @@
     <iframe src="https://script.google.com/macros/s/AKfycbwazZhdwnZEtJbqNWj0fNqTX5vASnoC1VF0R8h7gJu-k_XrSyhuWG4RXmc1vanck-ve/exec" id="main-iframe"></iframe>
 
     <script>
-        // Esto ayuda a que el iPhone no muestre barras blancas al girar o cambiar de tamaño
-        function fixSize() {
-            document.getElementById('main-iframe').style.height = window.innerHeight + 'px';
+        // Mantiene el tamaño correcto en móviles
+        function adjustIframe() {
+            var vh = window.innerHeight;
+            document.getElementById('main-iframe').style.height = vh + 'px';
         }
-        window.addEventListener('resize', fixSize);
-        window.addEventListener('orientationchange', fixSize);
-        fixSize();
+        window.addEventListener('resize', adjustIframe);
+        window.addEventListener('orientationchange', adjustIframe);
+        adjustIframe();
     </script>
 </body>
 </html>
