@@ -13,14 +13,34 @@
     <meta name="theme-color" content="#0a0e12">
     <link rel="icon" type="image/png" href="https://i.ibb.co/tpfBQmNt/Favicon-copia.png">
     
-    <link rel="manifest" href="data:application/manifest+json,{'name':'Dclan Athletes','short_name':'Dclan','start_url':'.','display':'standalone','background_color':'#0a0e12','theme_color':'#00d4ff','icons':[{'src':'https://i.ibb.co/tpfBQmNt/Favicon-copia.png','sizes':'192x192','type':'image/png'}]}">
+    <link rel="manifest" href="data:application/manifest+json, {
+        'name': 'Dclan Athletes',
+        'short_name': 'Dclan',
+        'description': 'App de entrenamiento para The Garage Box',
+        'start_url': 'index.html',
+        'display': 'standalone',
+        'background_color': '#0a0e12',
+        'theme_color': '#00d4ff',
+        'icons': [
+            {
+                'src': 'https://i.ibb.co/tpfBQmNt/Favicon-copia.png',
+                'sizes': '192x192',
+                'type': 'image/png',
+                'purpose': 'any maskable'
+            },
+            {
+                'src': 'https://i.ibb.co/tpfBQmNt/Favicon-copia.png',
+                'sizes': '512x512',
+                'type': 'image/png'
+            }
+        ]
+    }">
 
     <style>
         body, html { 
             margin: 0; padding: 0; height: 100%; width: 100%; 
             overflow: hidden; background-color: #0a0e12; 
         }
-        /* Ajuste para que el iframe ocupe todo incluyendo el área segura de iPhones */
         iframe { 
             border: none; width: 100%; height: 100%; 
             position: absolute; top: 0; left: 0;
@@ -28,16 +48,16 @@
     </style>
 </head>
 <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbwazZhdwnZEtJbqNWj0fNqTX5vASnoC1VF0R8h7gJu-k_XrSyhuWG4RXmc1vanck-ve/exec?v=1.1" 
-            allow="geolocation; microphone; camera; clipboard-write;" 
-            id="main-iframe">
-    </iframe>
+    <iframe src="https://script.google.com/macros/s/AKfycbwazZhdwnZEtJbqNWj0fNqTX5vASnoC1VF0R8h7gJu-k_XrSyhuWG4RXmc1vanck-ve/exec" id="main-iframe"></iframe>
 
     <script>
-        // Pequeño script para asegurar que el iframe siempre tenga el tamaño correcto
-        window.addEventListener('resize', function() {
+        // Esto ayuda a que el iPhone no muestre barras blancas al girar o cambiar de tamaño
+        function fixSize() {
             document.getElementById('main-iframe').style.height = window.innerHeight + 'px';
-        });
+        }
+        window.addEventListener('resize', fixSize);
+        window.addEventListener('orientationchange', fixSize);
+        fixSize();
     </script>
 </body>
 </html>
