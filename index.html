@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -16,6 +15,16 @@
     </style>
 </head>
 <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbwazZhdwnZEtJbqNWj0fNqTX5vASnoC1VF0R8h7gJu-k_XrSyhuWG4RXmc1vanck-ve/exec"></iframe>
+    <iframe id="app-frame" src="https://script.google.com/macros/s/AKfycbwazZhdwnZEtJbqNWj0fNqTX5vASnoC1VF0R8h7gJu-k_XrSyhuWG4RXmc1vanck-ve/exec"></iframe>
+
+    <script>
+      // Esta función fuerza al iframe a cargar la versión más reciente ignorando la caché
+      window.onload = function() {
+        var iframe = document.getElementById('app-frame');
+        var currentSrc = iframe.src;
+        // Agregamos una marca de tiempo única para que el navegador crea que es una URL nueva
+        iframe.src = currentSrc + '?t=' + new Date().getTime();
+      };
+    </script>
 </body>
 </html>
